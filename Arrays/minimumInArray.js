@@ -17,12 +17,11 @@ function findMinimum(arr) {
             min = arr[i];
         }
     }
-
     return min;
 }
 
 // Example
-const numbers = [12, 45, 7, 89, 23, 53];
+const numbers = [12, 35, 7, 89, 23, 53];
 
 console.log("Minimum Element:", findMinimum(numbers));
 
