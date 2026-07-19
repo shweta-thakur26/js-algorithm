@@ -1,17 +1,13 @@
 function findMissingNumber(arr) {
-    const n = arr.length;
+    arr.sort((a, b) => a - b);
 
-    let xor = 0;
-
-    for (let i = 0; i <= n; i++) {
-        xor ^= i;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== i) {
+            return i;
+        }
     }
 
-    for (let num of arr) {
-        xor ^= num;
-    }
-
-    return xor;
+    return arr.length;
 }
 
 console.log(findMissingNumber([3, 0, 1]));
