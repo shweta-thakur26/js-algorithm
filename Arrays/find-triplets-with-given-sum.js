@@ -37,7 +37,7 @@ function findTriplets(arr, target) {
             }
         }
     }
-
+    
     return result;
 }
 
