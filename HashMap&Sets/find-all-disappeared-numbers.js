@@ -1,0 +1,30 @@
+
+function findDisappearedNumbers(nums) {
+    const n = nums.length;
+    const result = [];
+
+    // Mark numbers that exist
+    for (const num of nums) {
+        const index = Math.abs(num) - 1;
+
+        if (nums[index] > 0) {
+            nums[index] = -nums[index];
+        }
+    }
+
+    // Positive values represent missing numbers
+    for (let i = 0; i < n; i++) {
+        if (nums[i] > 0) {
+            result.push(i + 1);
+        }
+    }
+
+    return result;
+}
+
+// Examples
+console.log(findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1]));
+// [5, 6]
+
+console.log(findDisappearedNumbers([1, 1]));
+// [2]
