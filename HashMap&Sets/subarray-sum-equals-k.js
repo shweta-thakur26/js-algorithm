@@ -1,9 +1,9 @@
 /**
  * @param {number[]} nums
- * @param {number} k
+ * @param {number} K
  * @return {number}
  */
-function subarraySum(nums, k) {
+function subarraySum(nums, K) {
   const prefixSums = new Map();
   prefixSums.set(0, 1);
 
@@ -13,8 +13,8 @@ function subarraySum(nums, k) {
   for (const num of nums) {
     sum += num;
 
-    if (prefixSums.has(sum - k)) {
-      count += prefixSums.get(sum - k);
+    if (prefixSums.has(sum - K)) {
+      count += prefixSums.get(sum - K);
     }
 
     prefixSums.set(sum, (prefixSums.get(sum) || 0) + 1);
