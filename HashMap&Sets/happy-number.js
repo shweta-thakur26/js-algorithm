@@ -1,17 +1,17 @@
 // feat: implement happy number checker
 
-function isHappyNumber(n) {
+function isHappyNumber(num) {
   const seen = new Set();
 
-  while (n !== 1 && !seen.has(n)) {
-    seen.add(n);
+  while (num !== 1 && !seen.has(num)) {
+    seen.add(num);
 
-    n = String(n)
+    num = String(num)
       .split("")
       .reduce((sum, digit) => sum + Number(digit) ** 2, 0);
   }
 
-  return n === 1;
+  return num === 1;
 }
 
 // Example usage
