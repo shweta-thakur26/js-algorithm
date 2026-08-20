@@ -1,7 +1,7 @@
-function findTheDifference(s, t) {
+function findTheDifference(a, t) {
   let result = 0;
 
-  for (const char of s) {
+  for (const char of a) {
     result ^= char.charCodeAt(0);
   }
 
