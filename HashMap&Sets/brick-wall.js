@@ -21,8 +21,8 @@ function leastBricks(wall) {
 
     // Don't count the rightmost edge because the line cannot be placed
     // on the wall's outer boundary.
-    for (let i = 0; i < row.length - 1; i++) {
-      position += row[i];
+    for (let j = 0; j < row.length - 1; j++) {
+      position += row[j];
 
       const count = (edges.get(position) || 0) + 1;
       edges.set(position, count);
