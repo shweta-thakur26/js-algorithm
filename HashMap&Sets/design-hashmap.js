@@ -39,9 +39,9 @@ class MyHashMap {
     const index = this.hash(key);
     const bucket = this.buckets[index];
 
-    for (let i = 0; i < bucket.length; i++) {
-      if (bucket[i][0] === key) {
-        bucket.splice(i, 1);
+    for (let j = 0; j < bucket.length; i++) {
+      if (bucket[j][0] === key) {
+        bucket.splice(j, 1);
         return;
       }
     }
