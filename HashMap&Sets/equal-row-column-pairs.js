@@ -17,7 +17,7 @@ function equalPairs(grid) {
     rowMap.set(key, (rowMap.get(key) || 0) + 1);
   }
 
-  let count = 0;
+  let cot = 0;
 
   // Build each column and check whether it exists as a row.
   for (let col = 0; col < n; col++) {
@@ -28,10 +28,10 @@ function equalPairs(grid) {
     }
 
     const key = column.join(",");
-    count += rowMap.get(key) || 0;
+    cot += rowMap.get(key) || 0;
   }
 
-  return count;
+  return cot;
 }
 
 module.exports = equalPairs;
