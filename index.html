@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Arrays - Interactive Playground</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 25px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+    }
+
+    header p {
+      margin: 0;
+      color: #cbd5e1;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #111827;
+    }
+
+    h3 {
+      color: #374151;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    button {
+      border: none;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 7px;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    button.danger {
+      background: #dc2626;
+    }
+
+    button.green {
+      background: #16a34a;
+    }
+
+    button.orange {
+      background: #ea580c;
+    }
+
+    .array {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .item {
+      background: #e0e7ff;
+      border: 2px solid #6366f1;
+      border-radius: 8px;
+      padding: 12px 18px;
+      min-width: 60px;
+      text-align: center;
+      position: relative;
+      font-weight: bold;
+    }
+
+    .index {
+      position: absolute;
+      top: -12px;
+      left: 5px;
+      font-size: 11px;
+      color: #555;
+      font-weight: normal;
+    }
+
+    .output {
+      background: #111827;
+      color: #22c55e;
+      padding: 15px;
+      border-radius: 8px;
+      min-height: 50px;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+
+    .code {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: monospace;
+      line-height: 1.6;
+    }
+
+    .concept {
+      border-left: 5px solid #2563eb;
+      padding-left: 15px;
+      margin: 20px 0;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .highlight {
+      background: #fef3c7;
+      padding: 12px;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+
+    .success {
+      color: #15803d;
+      font-weight: bold;
+    }
+
+    .question {
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 700px) {
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🚀 JavaScript Arrays Interactive Playground</h1>
+  <p>Learn JavaScript by changing values and clicking buttons.</p>
+</header>
+
+<div class="container">
+
+  <!-- ARRAY VISUALIZER -->
+  <div class="card">
+    <h2>1. Array Visualizer</h2>
+
+    <p>
+      Enter numbers separated by commas.
+    </p>
+
+    <input
+      id="arrayInput"
+      value="10, 20, 30, 40, 50"
+      placeholder="Example: 10,20,30,40"
+    />
+
+    <button onclick="createArray()">Create Array</button>
+
+    <div id="arrayDisplay" class="array"></div>
+
+    <div class="output" id="arrayOutput"></div>
+  </div>
+
+
+  <!-- PUSH POP -->
+  <div class="card">
+    <h2>2. push() and pop()</h2>
+
+    <div class="concept">
+      <h3>push()</h3>
+      <p>Adds an element to the END of an array.</p>
+
+      <div class="code">
+array.push(100);
+      </div>
+    </div>
+
+    <div class="concept">
+      <h3>pop()</h3>
+      <p>Removes the LAST element from an array.</p>
+
+      <div class="code">
+array.pop();
+      </div>
+    </div>
+
+    <button class="green" onclick="pushItem()">push(100)</button>
+    <button class="danger" onclick="popItem()">pop()</button>
+
+    <div id="pushPopDisplay" class="array"></div>
+
+    <div class="output" id="pushPopOutput"></div>
+  </div>
+
+
+  <!-- SHIFT UNSHIFT -->
+  <div class="card">
+    <h2>3. shift() and unshift()</h2>
+
+    <div class="two-column">
+
+      <div>
+        <h3>shift()</h3>
+
+        <p>
+          Removes the first element.
+        </p>
+
+        <div class="code">
+array.shift();
+        </div>
+
+        <button onclick="shiftItem()">shift()</button>
+      </div>
+
+      <div>
+        <h3>unshift()</h3>
+
+        <p>
+          Adds an element to the beginning.
+        </p>
+
+        <div class="code">
+array.unshift(5);
+        </div>
+
+        <button onclick="unshiftItem()">unshift(5)</button>
+      </div>
+
+    </div>
+
+    <div class="array" id="shiftDisplay"></div>
+
+    <div class="output" id="shiftOutput"></div>
+  </div>
+
+
+  <!-- LOOP -->
+  <div class="card">
+    <h2>4. for Loop</h2>
+
+    <p>
+      A loop allows us to execute the same logic for every element.
+    </p>
+
+    <div class="code">
+for (let i = 0; i &lt; array.length; i++) {
+    console.log(array[i]);
+}
+    </div>
+
+    <button onclick="runForLoop()">Run Loop</button>
+
+    <div class="output" id="loopOutput"></div>
+  </div>
+
+
+  <!-- MAP -->
+  <div class="card">
+    <h2>5. map()</h2>
+
+    <p>
+      <b>map()</b> creates a NEW array by transforming every element.
+    </p>
+
+    <div class="code">
+const result = array.map(num =&gt; num * 2);
+    </div>
+
+    <button onclick="runMap()">Multiply Every Number × 2</button>
+
+    <div class="output" id="mapOutput"></div>
+  </div>
+
+
+  <!-- FILTER -->
+  <div class="card">
+    <h2>6. filter()</h2>
+
+    <p>
+      <b>filter()</b> creates a new array containing only elements that satisfy a condition.
+    </p>
+
+    <div class="code">
+const result = array.filter(num =&gt; num &gt; 20);
+    </div>
+
+    <button onclick="runFilter()">Keep Numbers &gt; 20</button>
+
+    <div class="output" id="filterOutput"></div>
+  </div>
+
+
+  <!-- REDUCE -->
+  <div class="card">
+    <h2>7. reduce()</h2>
+
+    <p>
+      <b>reduce()</b> combines all elements into one final value.
+    </p>
+
+    <div class="code">
+const sum = array.reduce((total, num) =&gt; {
+    return total + num;
+}, 0);
+    </div>
+
+    <button onclick="runReduce()">Calculate Sum</button>
+
+    <div class="output" id="reduceOutput"></div>
+  </div>
+
+
+  <!-- FIND -->
+  <div class="card">
+    <h2>8. find()</h2>
+
+    <p>
+      Finds the first element that satisfies a condition.
+    </p>
+
+    <div class="code">
+const result = array.find(num =&gt; num &gt; 20);
+    </div>
+
+    <button onclick="runFind()">Find First Number &gt; 20</button>
+
+    <div class="output" id="findOutput"></div>
+  </div>
+
+
+  <!-- SOME EVERY -->
+  <div class="card">
+    <h2>9. some() vs every()</h2>
+
+    <div class="two-column">
+
+      <div>
+        <h3>some()</h3>
+        <p>
+          Returns true if <b>at least one</b> element passes the condition.
+        </p>
+
+        <div class="code">
+array.some(num =&gt; num &gt; 40);
+        </div>
+
+        <button onclick="runSome()">Run some()</button>
+
+        <div class="output" id="someOutput"></div>
+      </div>
+
+      <div>
+        <h3>every()</h3>
+        <p>
+          Returns true only if <b>all</b> elements pass the condition.
+        </p>
+
+        <div class="code">
+array.every(num =&gt; num &gt; 0);
+        </div>
+
+        <button onclick="runEvery()">Run every()</button>
+
+        <div class="output" id="everyOutput"></div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- INCLUDES -->
+  <div class="card">
+    <h2>10. includes()</h2>
+
+    <p>
+      Checks whether an array contains a particular value.
+    </p>
+
+    <div class="code">
+array.includes(30);
+    </div>
+
+    <button onclick="runIncludes()">Check for 30</button>
+
+    <div class="output" id="includesOutput"></div>
+  </div>
+
+
+  <!-- INDEX -->
+  <div class="card">
+    <h2>11. indexOf()</h2>
+
+    <p>
+      Finds the index/position of an element.
+    </p>
+
+    <div class="code">
+array.indexOf(30);
+    </div>
+
+    <button onclick="runIndexOf()">Find index of 30</button>
+
+    <div class="output" id="indexOutput"></div>
+  </div>
+
+
+  <!-- SORT -->
+  <div class="card">
+    <h2>12. sort()</h2>
+
+    <p>
+      Sort numbers in ascending order.
+    </p>
+
+    <div class="code">
+array.sort((a, b) =&gt; a - b);
+    </div>
+
+    <button onclick="runSort()">Sort Ascending</button>
+    <button class="orange" onclick="runReverseSort()">Sort Descending</button>
+
+    <div class="array" id="sortDisplay"></div>
+
+    <div class="output" id="sortOutput"></div>
+  </div>
+
+
+  <!-- SPREAD -->
+  <div class="card">
+    <h2>13. Spread Operator (...)</h2>
+
+    <p>
+      Spread allows us to copy or combine arrays.
+    </p>
+
+    <div class="code">
+const copy = [...array];
+
+const combined = [...array, 100, 200];
+    </div>
+
+    <button onclick="runSpread()">Run Spread</button>
+
+    <div class="output" id="spreadOutput"></div>
+  </div>
+
+
+  <!-- DESTRUCTURING -->
+  <div class="card">
+    <h2>14. Array Destructuring</h2>
+
+    <p>
+      Destructuring lets us extract values from an array into variables.
+    </p>
+
+    <div class="code">
+const [first, second, third] = array;
+    </div>
+
+    <button onclick="runDestructuring()">Destructure Array</button>
+
+    <div class="output" id="destructureOutput"></div>
+  </div>
+
+
+  <!-- COMMON QUESTIONS -->
+  <div class="card">
+    <h2>15. Common Array Interview Problems</h2>
+
+    <div class="question">
+      <h3>Question 1: Find the largest number</h3>
+
+      <div class="code">
+let max = array[0];
+
+for (let i = 1; i &lt; array.length; i++) {
+    if (array[i] &gt; max) {
+        max = array[i];
+    }
+}
+      </div>
+
+      <button onclick="findLargest()">Find Largest</button>
+
+      <div class="output" id="largestOutput"></div>
+    </div>
+
+
+    <div class="question">
+      <h3>Question 2: Find the smallest number</h3>
+
+      <button onclick="findSmallest()">Find Smallest</button>
+
+      <div class="output" id="smallestOutput"></div>
+    </div>
+
+
+    <div class="question">
+      <h3>Question 3: Count even numbers</h3>
+
+      <div class="code">
+if (array[i] % 2 === 0) {
+    count++;
+}
+      </div>
+
+      <button onclick="countEven()">Count Even Numbers</button>
+
+      <div class="output" id="evenOutput"></div>
+    </div>
+
+
+    <div class="question">
+      <h3>Question 4: Remove duplicates</h3>
+
+      <div class="code">
+const unique = [...new Set(array)];
+      </div>
+
+      <button onclick="removeDuplicates()">Remove Duplicates</button>
+
+      <div class="output" id="duplicateOutput"></div>
+    </div>
+
+
+    <div class="question">
+      <h3>Question 5: Find second largest</h3>
+
+      <button onclick="secondLargest()">Find Second Largest</button>
+
+      <div class="output" id="secondOutput"></div>
+    </div>
+
+  </div>
+
+
+  <!-- RESET -->
+  <div class="card" style="text-align:center;">
+    <button class="danger" onclick="resetEverything()">
+      Reset Everything
+    </button>
+  </div>
+
+</div>
+
+
+<script>
+
+  // ============================================================
+  // MAIN ARRAY
+  // ============================================================
+
+  let array = [10, 20, 30, 40, 50];
+
+
+  // ============================================================
+  // DISPLAY ARRAY
+  // ============================================================
+
+  function displayArray(elementId, arr) {
+
+    const container = document.getElementById(elementId);
+
+    container.innerHTML = "";
+
+    arr.forEach((value, index) => {
+
+      const div = document.createElement("div");
+
+      div.className = "item";
+
+      div.innerHTML = `
+        <span class="index">index ${index}</span>
+        ${value}
+      `;
+
+      container.appendChild(div);
+
+    });
+  }
+
+
+  // ============================================================
+  // CREATE ARRAY
+  // ============================================================
+
+  function createArray() {
+
+    const input = document.getElementById("arrayInput").value;
+
+    array = input
+      .split(",")
+      .map(item => Number(item.trim()))
+      .filter(item => !Number.isNaN(item));
+
+    displayArray("arrayDisplay", array);
+
+    document.getElementById("arrayOutput").textContent =
+      `Array created successfully!\n\n${JSON.stringify(array)}`;
+
+    updateAllDisplays();
+  }
+
+
+  // ============================================================
+  // PUSH
+  // ============================================================
+
+  function pushItem() {
+
+    array.push(100);
+
+    updateAllDisplays();
+
+    document.getElementById("pushPopOutput").textContent =
+      `push(100)\n\nNew array:\n${JSON.stringify(array)}`;
+  }
+
+
+  // ============================================================
+  // POP
+  // ============================================================
+
+  function popItem() {
+
+    const removed = array.pop();
+
+    updateAllDisplays();
+
+    document.getElementById("pushPopOutput").textContent =
+      `pop()\n\nRemoved: ${removed}\n\nNew array:\n${JSON.stringify(array)}`;
+  }
+
+
+  // ============================================================
+  // SHIFT
+  // ============================================================
+
+  function shiftItem() {
+
+    const removed = array.shift();
+
+    updateAllDisplays();
+
+    document.getElementById("shiftOutput").textContent =
+      `shift()\n\nRemoved first element: ${removed}\n\nNew array:\n${JSON.stringify(array)}`;
+  }
+
+
+  // ============================================================
+  // UNSHIFT
+  // ============================================================
+
+  function unshiftItem() {
+
+    array.unshift(5);
+
+    updateAllDisplays();
+
+    document.getElementById("shiftOutput").textContent =
+      `unshift(5)\n\nNew array:\n${JSON.stringify(array)}`;
+  }
+
+
+  // ============================================================
+  // FOR LOOP
+  // ============================================================
+
+  function runForLoop() {
+
+    let output = "";
+
+    for (let i = 0; i < array.length; i++) {
+
+      output +=
+        `i = ${i} → array[${i}] = ${array[i]}\n`;
+
+    }
+
+    document.getElementById("loopOutput").textContent = output;
+  }
+
+
+  // ============================================================
+  // MAP
+  // ============================================================
+
+  function runMap() {
+
+    const result = array.map(num => num * 2);
+
+    document.getElementById("mapOutput").textContent =
+      `Original:\n${JSON.stringify(array)}\n\n` +
+      `map(num => num * 2):\n${JSON.stringify(result)}`;
+  }
+
+
+  // ============================================================
+  // FILTER
+  // ============================================================
+
+  function runFilter() {
+
+    const result = array.filter(num => num > 20);
+
+    document.getElementById("filterOutput").textContent =
+      `Original:\n${JSON.stringify(array)}\n\n` +
+      `Numbers > 20:\n${JSON.stringify(result)}`;
+  }
+
+
+  // ============================================================
+  // REDUCE
+  // ============================================================
+
+  function runReduce() {
+
+    let steps = "";
+
+    const result = array.reduce((total, num) => {
+
+      const newTotal = total + num;
+
+      steps +=
+        `${total} + ${num} = ${newTotal}\n`;
+
+      return newTotal;
+
+    }, 0);
+
+    document.getElementById("reduceOutput").textContent =
+      `${steps}\nFinal Answer = ${result}`;
+  }
+
+
+  // ============================================================
+  // FIND
+  // ============================================================
+
+  function runFind() {
+
+    const result = array.find(num => num > 20);
+
+    document.getElementById("findOutput").textContent =
+      `First number > 20:\n${result}`;
+  }
+
+
+  // ============================================================
+  // SOME
+  // ============================================================
+
+  function runSome() {
+
+    const result = array.some(num => num > 40);
+
+    document.getElementById("someOutput").textContent =
+      `Is at least one number > 40?\n\n${result}`;
+  }
+
+
+  // ============================================================
+  // EVERY
+  // ============================================================
+
+  function runEvery() {
+
+    const result = array.every(num => num > 0);
+
+    document.getElementById("everyOutput").textContent =
+      `Are all numbers > 0?\n\n${result}`;
+  }
+
+
+  // ============================================================
+  // INCLUDES
+  // ============================================================
+
+  function runIncludes() {
+
+    const result = array.includes(30);
+
+    document.getElementById("includesOutput").textContent =
+      `Does array contain 30?\n\n${result}`;
+  }
+
+
+  // ============================================================
+  // INDEX OF
+  // ============================================================
+
+  function runIndexOf() {
+
+    const result = array.indexOf(30);
+
+    document.getElementById("indexOutput").textContent =
+      `indexOf(30)\n\nIndex = ${result}`;
+  }
+
+
+  // ============================================================
+  // SORT
+  // ============================================================
+
+  function runSort() {
+
+    array.sort((a, b) => a - b);
+
+    displayArray("sortDisplay", array);
+
+    document.getElementById("sortOutput").textContent =
+      `Sorted ascending:\n${JSON.stringify(array)}`;
+
+    updateAllDisplays();
+  }
+
+
+  function runReverseSort() {
+
+    array.sort((a, b) => b - a);
+
+    displayArray("sortDisplay", array);
+
+    document.getElementById("sortOutput").textContent =
+      `Sorted descending:\n${JSON.stringify(array)}`;
+
+    updateAllDisplays();
+  }
+
+
+  // ============================================================
+  // SPREAD
+  // ============================================================
+
+  function runSpread() {
+
+    const copy = [...array];
+
+    const combined = [...array, 100, 200];
+
+    document.getElementById("spreadOutput").textContent =
+      `Original:\n${JSON.stringify(array)}\n\n` +
+
+      `Copy using [...array]:\n${JSON.stringify(copy)}\n\n` +
+
+      `Combined:\n${JSON.stringify(combined)}`;
+  }
+
+
+  // ============================================================
+  // DESTRUCTURING
+  // ============================================================
+
+  function runDestructuring() {
+
+    const [first, second, third] = array;
+
+    document.getElementById("destructureOutput").textContent =
+      `const [first, second, third] = array;\n\n` +
+
+      `first  = ${first}\n` +
+      `second = ${second}\n` +
+      `third  = ${third}`;
+  }
+
+
+  // ============================================================
+  // LARGEST
+  // ============================================================
+
+  function findLargest() {
+
+    if (array.length === 0) {
+
+      document.getElementById("largestOutput").textContent =
+        "Array is empty.";
+
+      return;
+    }
+
+    let max = array[0];
+
+    for (let i = 1; i < array.length; i++) {
+
+      if (array[i] > max) {
+        max = array[i];
+      }
+
+    }
+
+    document.getElementById("largestOutput").textContent =
+      `Largest number = ${max}`;
+  }
+
+
+  // ============================================================
+  // SMALLEST
+  // ============================================================
+
+  function findSmallest() {
+
+    if (array.length === 0) {
+
+      document.getElementById("smallestOutput").textContent =
+        "Array is empty.";
+
+      return;
+    }
+
+    let min = array[0];
+
+    for (let i = 1; i < array.length; i++) {
+
+      if (array[i] < min) {
+        min = array[i];
+      }
+
+    }
+
+    document.getElementById("smallestOutput").textContent =
+      `Smallest number = ${min}`;
+  }
+
+
+  // ============================================================
+  // COUNT EVEN
+  // ============================================================
+
+  function countEven() {
+
+    let count = 0;
+
+    for (let i = 0; i < array.length; i++) {
+
+      if (array[i] % 2 === 0) {
+        count++;
+      }
+
+    }
+
+    document.getElementById("evenOutput").textContent =
+      `Even numbers = ${count}`;
+  }
+
+
+  // ============================================================
+  // REMOVE DUPLICATES
+  // ============================================================
+
+  function removeDuplicates() {
+
+    const unique = [...new Set(array)];
+
+    document.getElementById("duplicateOutput").textContent =
+      `Original:\n${JSON.stringify(array)}\n\n` +
+
+      `Without duplicates:\n${JSON.stringify(unique)}`;
+  }
+
+
+  // ============================================================
+  // SECOND LARGEST
+  // ============================================================
+
+  function secondLargest() {
+
+    const unique = [...new Set(array)];
+
+    if (unique.length < 2) {
+
+      document.getElementById("secondOutput").textContent =
+        "Need at least 2 different numbers.";
+
+      return;
+    }
+
+    unique.sort((a, b) => b - a);
+
+    document.getElementById("secondOutput").textContent =
+      `Sorted:\n${JSON.stringify(unique)}\n\n` +
+
+      `Second largest = ${unique[1]}`;
+  }
+
+
+  // ============================================================
+  // UPDATE ALL DISPLAYS
+  // ============================================================
+
+  function updateAllDisplays() {
+
+    displayArray("arrayDisplay", array);
+    displayArray("pushPopDisplay", array);
+    displayArray("shiftDisplay", array);
+    displayArray("sortDisplay", array);
+
+  }
+
+
+  // ============================================================
+  // RESET
+  // ============================================================
+
+  function resetEverything() {
+
+    array = [10, 20, 30, 40, 50];
+
+    document.getElementById("arrayInput").value =
+      "10, 20, 30, 40, 50";
+
+    updateAllDisplays();
+
+    document.querySelectorAll(".output").forEach(element => {
+      element.textContent = "";
+    });
+
+  }
+
+
+  // ============================================================
+  // INITIAL DISPLAY
+  // ============================================================
+
+  updateAllDisplays();
+
+</script>
+
+</body>
+</html>
