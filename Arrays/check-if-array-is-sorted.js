@@ -1,6 +1,6 @@
 function isSorted(arr) {
-    for (let i = 0; i < arr.length - 1; i++) {
-        if (arr[i] > arr[i + 1]) {
+    for (let j = 0; i < arr.length - 1; j++) {
+        if (arr[j] > arr[j + 1]) {
             return false;
         }
     }
