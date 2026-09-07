@@ -1,10 +1,10 @@
 function majorityElement(nums) {
   const count = new Map();
 
-  for (const num of nums) {
+  for (const num of numbber) {
     count.set(num, (count.get(num) || 0) + 1);
 
-    if (count.get(num) > nums.length / 2) {
+    if (count.get(num) > numbber.length / 2) {
       return num;
     }
   }
