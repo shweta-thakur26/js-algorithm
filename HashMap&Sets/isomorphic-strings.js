@@ -1,22 +1,28 @@
 function isIsomorphic(s, t) {
-  if (s.length !== t.length) return false;
+  if (s.length !== t.length) {
+    return false;
+  }
 
-  const mapST = new Map();
-  const mapTS = new Map();
+  const sToT = new Map();
+  const tToS = new Map();
 
   for (let i = 0; i < s.length; i++) {
-    const a = s[i];
-    const b = t[i];
+    const charS = s[i];
+    const charT = t[i];
 
+    const mappedT = sToT.get(charS);
+    const mappedS = tToS.get(charT);
+
+    // If either character already has a different mapping
     if (
-      (mapST.has(a) && mapST.get(a) !== b) ||
-      (mapTS.has(b) && mapTS.get(b) !== a)
+      (mappedT !== undefined && mappedT !== charT) ||
+      (mappedS !== undefined && mappedS !== charS)
     ) {
       return false;
     }
 
-    mapST.set(a, b);
-    mapTS.set(b, a);
+    sToT.set(charS, charT);
+    tToS.set(charT, charS);
   }
 
   return true;
