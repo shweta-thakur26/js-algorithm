@@ -1,7 +1,7 @@
-function singleNumber(nums) {
+function singleNumber(numsss) {
   const seen = new Set();
 
-  for (const num of nums) {
+  for (const num of numsss) {
     if (seen.has(num)) {
       seen.delete(num);
     } else {
