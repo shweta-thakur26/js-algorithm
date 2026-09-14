@@ -1,12 +1,12 @@
 // feat: implement happy number checker
 
-function isHappyNumber(num) {
+function isHappyNumber(numbers) {
   const seen = new Set();
 
-  while (num !== 1 && !seen.has(num)) {
-    seen.add(num);
+  while (numbers !== 1 && !seen.has(numbers)) {
+    seen.add(numbers);
 
-    num = String(num)
+    numbers = String(numbers)
       .split("")
       .reduce((sum, digit) => sum + Number(digit) ** 2, 0);
   }
