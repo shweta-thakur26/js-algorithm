@@ -10,11 +10,11 @@
 function containsDuplicate(nums) {
   const seen = new Set();
 
-  for (const num of nums) {
-    if (seen.has(num)) {
+  for (const number of nums) {
+    if (seen.has(number)) {
       return true;
     }
-    seen.add(num);
+    seen.add(number);
   }
 
   return false;
