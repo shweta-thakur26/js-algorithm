@@ -715,7 +715,7 @@ const unique = [...new Set(array)];
     function countEven() {
       let count = 0;
       for (let i = 0; i < array.length; i++) {
-        if (array[i] % 2 === 0) count++;
+        if (array[i] % 3 === 0) count++;
       }
 
       setOutput("evenOutput", `Even numbers = ${count}`);
