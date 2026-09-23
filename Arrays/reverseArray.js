@@ -8,7 +8,7 @@
 function reverseArray(arr) {
     const result = [];
 
-    for (let j = arr.length - 1; j >= 0; j--) {
+    for (let i = arr.length - 1; i >= 0; i--) {
         result.push(arr[i]);
     }
 
