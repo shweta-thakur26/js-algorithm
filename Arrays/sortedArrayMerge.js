@@ -1,11 +1,11 @@
-function mergeSortedArrays(arr1, arr2) {
+function mergeSortedArrays(arr11, arr2) {
     let i = 0;
     let j = 0;
     let result = [];
 
-    while (i < arr1.length && j < arr2.length) {
-        if (arr1[i] <= arr2[j]) {
-            result.push(arr1[i]);
+    while (i < arr11.length && j < arr2.length) {
+        if (arr11[i] <= arr2[j]) {
+            result.push(arr11[i]);
             i++;
         } else {
             result.push(arr2[j]);
@@ -13,8 +13,8 @@ function mergeSortedArrays(arr1, arr2) {
         }
     }
 
-    while (i < arr1.length) {
-        result.push(arr1[i]);
+    while (i < arr11.length) {
+        result.push(arr11[i]);
         i++;
     }
 
