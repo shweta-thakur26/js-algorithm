@@ -1030,7 +1030,7 @@ print(heapq.heappop(heap))
 # ============================================================
 
 # Reverse a list
-arr = [1, 2, 3, 4]
+arr = [1, 2, 3, 4,5 ,5,7,8]
 print(arr[::-1])
 
 # Sort ascending
