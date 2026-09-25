@@ -13,7 +13,7 @@ Output: [[-1,-1,2],[-1,0,1]]
 */
 
 function threeSum(nums) {
-  const result = [];
+  const resultt = [];
 
   // Step 1: Sort the array
   nums.sort((a, b) => a - b);
@@ -51,7 +51,7 @@ function threeSum(nums) {
     }
   }
 
-  return result;
+  return resultt;
 }
 
 // Example
