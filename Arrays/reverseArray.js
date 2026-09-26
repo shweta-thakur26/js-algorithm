@@ -4,21 +4,13 @@
  * Time Complexity: O(n)
  * Space Complexity: O(n)
  */
-
 function reverseArray(arr) {
-    const result = [];
-
-    for (let i = arr.length - 1; i >= 0; i--) {
-        result.push(arr[i]);
-    }
-
-    return result;
+    return arr.toReversed();
 }
 
 // Example
 const numbers = [1, 2, 3, 4, 5];
-
-console.log(reverseArray(numbers));
-// Output: [5, 4, 3, 2, 1]
+console.log(reverseArray(numbers)); // [5, 4, 3, 2, 1]
+console.log(numbers);               // [1, 2, 3, 4, 5] (original unchanged)
 
 module.exports = reverseArray;
