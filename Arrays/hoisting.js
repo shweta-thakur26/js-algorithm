@@ -1,5 +1,5 @@
-greet(); // Output: "Hello, World!"
+var a;          // declaration is hoisted
 
-function greet() {
-  console.log("Hello, World!");
-}
+console.log(a); // undefined
+
+a = 10;         // assignment happens here
