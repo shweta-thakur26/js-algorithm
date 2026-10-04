@@ -1,18 +1,18 @@
-function majorityElement(arr) {
+function majorityElement(nums) {
     let candidate = null;
     let count = 0;
 
-    for (const num of arr) {
+    for (const num of nums) {
         if (count === 0) {
             candidate = num;
         }
 
-        count += (num === candidate) ? 1 : -1;
+        if (num === candidate) {
+            count++;
+        } else {
+            count--;
+        }
     }
 
     return candidate;
 }
-
-const arr = [2, 2, 1, 1, 1, 2, 2];
-
-console.log(majorityElement(arr));
