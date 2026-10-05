@@ -1,16 +1,16 @@
 function majorityElement(nums) {
     let candidate = null;
-    let count = 0;
+    let c = 0;
 
     for (const num of nums) {
-        if (count === 0) {
+        if (c === 0) {
             candidate = num;
         }
 
         if (num === candidate) {
-            count++;
+            c++;
         } else {
-            count--;
+            c--;
         }
     }
 
