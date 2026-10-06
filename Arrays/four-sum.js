@@ -18,7 +18,7 @@ Output:
 */
 
 function fourSum(nums, target) {
-  const result = [];
+  const res = [];
 
   // Step 1: Sort the array
   nums.sort((a, b) => a - b);
@@ -43,7 +43,7 @@ function fourSum(nums, target) {
           nums[i] + nums[j] + nums[left] + nums[right];
 
         if (sum === target) {
-          result.push([
+          res.push([
             nums[i],
             nums[j],
             nums[left],
@@ -76,7 +76,7 @@ function fourSum(nums, target) {
     }
   }
 
-  return result;
+  return res;
 }
 
 // Example
