@@ -55,5 +55,5 @@ function threeSum(nums) {
 }
 
 // Example
-const nums = [-1, 0, 1, 2, -1, -4];
+const nums = [-1, 0, 1, 2, -1, -4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 console.log(threeSum(nums));
