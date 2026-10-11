@@ -1,5 +1,5 @@
-var a;          // declaration is hoisted
+var b;          // declaration is hoisted
 
-console.log(a); // undefined
+console.log(b); // undefined
 
-a = 18;         // assignment happens here
+b = 18;         // assignment happens here
