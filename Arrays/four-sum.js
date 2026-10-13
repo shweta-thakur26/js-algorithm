@@ -80,7 +80,7 @@ function fourSum(nums, target) {
 }
 
 // Example
-const nums = [1, 0, -1, 0, -2, 2];
+const nums = [1, 0, -1, 0, -2, 2, 3, 1, 4];
 const target = 0;
 
 console.log(fourSum(nums, target));
