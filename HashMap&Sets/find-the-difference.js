@@ -1,4 +1,4 @@
-function findTheDifference(b, t) {
+function findTheDiff(b, t) {
   let res = 0;
 
   for (const char of b) {
@@ -12,4 +12,4 @@ function findTheDifference(b, t) {
   return String.fromCharCode(res);
 }
 
-module.exports = findTheDifference;
+module.exports = findTheDiff;
