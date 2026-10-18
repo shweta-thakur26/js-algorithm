@@ -16,4 +16,4 @@ function isHappyNumber(num) {
 
 // Example usage
 console.log(isHappyNumber(19)); // true
-console.log(isHappyNumber(2));  // false
+console.log(isHappyNumber(20));  // false
