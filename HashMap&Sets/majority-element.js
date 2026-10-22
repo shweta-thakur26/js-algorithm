@@ -1,4 +1,4 @@
-function majorityElement(num) {
+function majorityElement(numss) {
   const count = new Map();
 
   for (const num of numbber) {
