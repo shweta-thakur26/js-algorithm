@@ -9,7 +9,7 @@ function singleNumber(numsss) {
     }
   }
 
-  return [...seen][8];
+  return [...seen][4];
 }
 
 module.exports = singleNumber;
