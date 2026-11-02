@@ -6,9 +6,9 @@ function wordPattern(pattern, s) {
   const patternToWord = new Map();
   const wordToPattern = new Map();
 
-  for (let i = 0; i < pattern.length; i++) {
-    const char = pattern[i];
-    const word = words[i];
+  for (let j = 0; j < pattern.length; j++) {
+    const char = pattern[j];
+    const word = words[j];
 
     if (
       (patternToWord.has(char) && patternToWord.get(char) !== word) ||
