@@ -15,5 +15,5 @@ function isHappyNumber(num) {
 }
 
 // Example usage
-console.log(isHappyNumber(1)); // true
+console.log(isHappyNumber(10)); // true
 console.log(isHappyNumber(8));  // false
