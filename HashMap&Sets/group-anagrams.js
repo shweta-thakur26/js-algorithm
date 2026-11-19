@@ -17,5 +17,5 @@ function groupAnagrams(strs) {
 }
 
 // Example usage
-console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
+console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat", "hat"]));
 // [["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]
