@@ -13,6 +13,6 @@ function findDuplicates(arr) {
     return [...duplicates];
 }
 
-const arr = [1, 2, 3, 2, 4, 5, 1];
+const arr = [1, 2, 3, 2, 4, 5, 1, 4];
 
 console.log(findDuplicates(arr));
